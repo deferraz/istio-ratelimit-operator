@@ -109,7 +109,7 @@ func (r *RateLimitServiceReconciler) Reconcile(ctx context.Context, req ctrl.Req
 				continue
 			}
 
-			if configA.Spec.Ratelimit.Spec.Domain != configB.Spec.Ratelimit.Spec.Domain {
+			if configA.Spec.Ratelimit.Spec.Domain == configB.Spec.Ratelimit.Spec.Domain {
 				return ctrl.Result{}, fmt.Errorf("globalRateLimitConfig use different domain")
 			}
 		}
